@@ -15,7 +15,7 @@ var JWTSecretKey = []byte("secret-key")
 
 func ValidateAPIKey() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		apiKey := os.Getenv("APIKey")
+		apiKey := os.Getenv("APIKEY")
 		if apiKey != "" {
 			log.Fatal("API Key not set")
 		}
