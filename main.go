@@ -1,6 +1,9 @@
 package main
 
 import (
+	"gin/handler"
+	"gin/middleware"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,5 +22,11 @@ func main() {
 			"message": "pong",
 		})
 	})
+
+	r.Use(middleware.ValidateAPIKey())
+	r.GET("/login", handler.Login)
+	// r.Use(middleware.ValidateUserToken())
+	// r.GET("/recipes", handler.HandlerGetRecipe)
+
 	r.Run()
 }
