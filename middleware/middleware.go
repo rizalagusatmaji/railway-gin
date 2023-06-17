@@ -16,7 +16,7 @@ var JWTSecretKey = []byte("secret-key")
 func ValidateAPIKey() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		apiKey := os.Getenv("APIKEY")
-		if apiKey != "" {
+		if apiKey == "" {
 			log.Fatal("API Key not set")
 		}
 		//check header ada atau tidak
