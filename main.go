@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"gin/handler"
 	"gin/middleware"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -18,6 +20,7 @@ func main() {
 	})
 
 	r.GET("/ping", func(c *gin.Context) {
+		fmt.Println(os.Getenv("APIKEY"))
 		c.JSON(200, gin.H{
 			"message": "pong",
 		})
